@@ -25,9 +25,9 @@ RUN      ln -sf /etc/nginx/sites-available/nginx-app.conf \
                 /etc/nginx/sites-enabled/nginx-app.conf
 
 # Copy supervisor conf
-RUN     cp -f /srv/backend/.config/superviosrd.conf \
-              /etc/supervisor/conf.d
+RUN     cp -f /srv/backend/.config/supervisord.conf \
+              /etc/supervisor/conf.d/
 
 # Stop Nginx, Run supervisor
-CMD    pkill nginx; supervisor -n
+CMD     pkill nginx; supervisord -n
 EXPOSE    80
